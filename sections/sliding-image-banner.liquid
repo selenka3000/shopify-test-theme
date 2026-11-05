@@ -1,0 +1,36 @@
+{{ 'sliding-image-banner.css' | asset_url | stylesheet_tag }}
+
+<section id="slidingImageBanner-{{ section.id }}" class="sliding-image-banner">
+    <div class="sliding-image-banner_container">
+        {%  if section.settings.title != blank %}
+            <h1 class="sliding-image-banner__title">{{ section.settings.title }}</h1>
+        {% endif %}
+    </div>
+    <div class="sliding-image-banner__images">
+        {{ 'slider-dental-img1.jpg' | asset_url | image_tag: alt: section.settings.title }}
+    </div>
+</section>
+
+{% schema %}
+{
+    "name": "Sliding-Image-Banner",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Bilder konnten nicht geladen werden"
+        },
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Sliding-Image-Banner"
+        }
+    ]
+}
+{% endschema %}
