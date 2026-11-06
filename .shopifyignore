@@ -1,0 +1,12 @@
+docs/**
+scripts/**
+tests/**
+node_modules/**
+coverage/**
+package.json
+package-lock.json
+README.md
+.gitignore
+.gitattributes
+.editorconfig
+*.log

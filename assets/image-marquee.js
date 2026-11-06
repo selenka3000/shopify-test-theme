@@ -6,6 +6,7 @@ if (!customElements.get('image-marquee')) {
         this.toggleButton = this.querySelector('.image-marquee__toggle');
         if (!this.toggleButton) return;
 
+        // Reveal playback controls only after the custom element can handle them.
         this.toggleButton.hidden = false;
         this.updateButtonLabel();
         this.onToggle = () => {
@@ -16,6 +17,7 @@ if (!customElements.get('image-marquee')) {
       }
 
       updateButtonLabel() {
+        // Describe the next action; CSS reads data-paused to control the animation.
         const label = this.hasAttribute('data-paused')
           ? this.toggleButton.dataset.playLabel
           : this.toggleButton.dataset.pauseLabel;
@@ -23,6 +25,7 @@ if (!customElements.get('image-marquee')) {
       }
 
       disconnectedCallback() {
+        // The theme editor can remove and reconnect the same section instance.
         this.toggleButton?.removeEventListener('click', this.onToggle);
       }
     }

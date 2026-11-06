@@ -35,7 +35,7 @@ if (!customElements.get('product-form')) {
         this.cart.setActiveElement(document.activeElement);
       }
     
-      //Added to generate selling plan add to cart response
+      // Include the selected subscription plan in Shopify's cart request.
       const sellingPlanId = window.getCurrentSellingPlanId();
       formData.append("selling_plan", sellingPlanId);
       

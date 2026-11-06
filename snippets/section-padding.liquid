@@ -1,0 +1,22 @@
+{%- doc -%}
+  Renders scoped section spacing with the existing 750px desktop breakpoint.
+  Mobile padding is rounded after applying the 0.75 scale; zero remains valid.
+
+  @param {object} section - Calling section with its ID and padding settings.
+
+  @example
+  {% render 'section-padding', section: section %}
+{%- enddoc -%}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}

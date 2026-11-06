@@ -1,17 +1,20 @@
-{% comment %}
+{% doc %}
   Reusable, continuously scrolling strip of numbered theme assets.
   Load component-image-marquee.css and image-marquee.js in the calling section.
 
-  Parameters:
-    image_prefix: Filename prefix before the number (required).
-    image_count: Number of images, at least 2 (default: 5).
-    image_extension: File extension without a dot (default: jpg).
-    seconds_per_image: Seconds to move one image plus its gap (default: 10).
-    image_width / image_height: Display aspect ratio (default: 900 / 500).
-    image_alt: Optional shared alternative text; empty for decorative images.
+  The second image set closes the animation loop and is hidden from assistive technology.
 
-  Example: {% render 'image-marquee', image_prefix: 'sliding-banner-image', image_count: 5 %}
-{% endcomment %}
+  @param {string} image_prefix - Filename prefix before each image number.
+  @param {number} [image_count] - Number of images, at least 2; defaults to 5.
+  @param {string} [image_extension] - File extension without a dot; defaults to jpg.
+  @param {number} [seconds_per_image] - Seconds per image and gap; defaults to 10.
+  @param {number} [image_width] - Aspect-ratio width; defaults to 900.
+  @param {number} [image_height] - Aspect-ratio height; defaults to 500.
+  @param {string} [image_alt] - Shared alternative text; empty for decorative images.
+
+  @example
+  {% render 'image-marquee', image_prefix: 'sliding-banner-image', image_count: 5 %}
+{% enddoc %}
 
 {%- liquid
   assign count = image_count | default: 5 | at_least: 2
