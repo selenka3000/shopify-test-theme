@@ -1,0 +1,117 @@
+.image-marquee {
+  --image-marquee-gap: 2rem;
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.image-marquee__viewport {
+  overflow-x: auto;
+}
+
+.image-marquee__track {
+  display: flex;
+  gap: var(--image-marquee-gap);
+  width: 100%;
+  direction: ltr;
+}
+
+.image-marquee__item {
+  flex: 0 0 calc((100% - var(--image-marquee-gap)) / 2);
+  min-width: 0;
+}
+
+.image-marquee__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--image-marquee-ratio);
+  object-fit: cover;
+}
+
+.image-marquee__item--duplicate {
+  display: none;
+}
+
+.image-marquee:defined .image-marquee__viewport {
+  overflow: hidden;
+}
+
+.image-marquee:defined .image-marquee__item--duplicate {
+  display: block;
+}
+
+.image-marquee:defined .image-marquee__track {
+  animation: image-marquee-scroll var(--image-marquee-duration) linear infinite;
+}
+
+.image-marquee[data-paused] .image-marquee__track {
+  animation-play-state: paused;
+}
+
+.image-marquee__toggle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 5.6rem;
+  height: 5.6rem;
+  padding: 1.2rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.image-marquee__toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #000;
+}
+
+.image-marquee__icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* External SVGs have black strokes; render both icons in white. */
+  filter: brightness(0) invert(1);
+}
+
+.image-marquee__icon--play,
+.image-marquee[data-paused] .image-marquee__icon--pause {
+  display: none;
+}
+
+.image-marquee[data-paused] .image-marquee__icon--play {
+  display: block;
+}
+
+.image-marquee__toggle[hidden] {
+  display: none;
+}
+
+@keyframes image-marquee-scroll {
+  to {
+    /* One complete set, including the gap between the last and first image. */
+    transform: translateX(calc(-1 * (var(--image-marquee-cycle-width) + var(--image-marquee-gap) * var(--image-marquee-cycle-gaps))));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-marquee:defined .image-marquee__track {
+    animation: none;
+  }
+
+  .image-marquee:defined .image-marquee__viewport {
+    overflow-x: auto;
+  }
+
+  .image-marquee:defined .image-marquee__item--duplicate,
+  .image-marquee__toggle {
+    display: none;
+  }
+}

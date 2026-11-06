@@ -1,32 +1,23 @@
 {{ 'sliding-image-banner.css' | asset_url | stylesheet_tag }}
+{{ 'component-image-marquee.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'image-marquee.js' | asset_url }}" defer="defer"></script>
 
 <section id="slidingImageBanner-{{ section.id }}" class="sliding-image-banner">
-    <div class="sliding-image-banner_container">
-        {%  if section.settings.title != blank %}
-            <h1 class="sliding-image-banner__title">{{ section.settings.title }}</h1>
-        {% endif %}
-    </div>
-    <div class="sliding-image-banner__images">
-        {{ 'slider-dental-img1.jpg' | asset_url | image_tag: alt: section.settings.title }}
-    </div>
+  <div class="page-width">
+    {% render 'image-marquee',
+      image_prefix: 'sliding-banner-image',
+      image_count: 5,
+      seconds_per_image: 10,
+      image_width: 900,
+      image_height: 500
+    %}
+  </div>
 </section>
 
 {% schema %}
 {
     "name": "Sliding-Image-Banner",
-    "settings": [
-        {
-            "type": "text",
-            "id": "title",
-            "label": "Title",
-            "default": "Bilder konnten nicht geladen werden"
-        },
-        {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-        }
-    ],
+    "settings": [],
     "presets": [
         {
             "name": "Sliding-Image-Banner"

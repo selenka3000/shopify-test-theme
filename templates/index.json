@@ -217,9 +217,7 @@
     },
     "sliding_image_banner": {
         "type": "sliding-image-banner",
-        "settings": {
-          "title": "Testüberschrift"
-        }
+        "settings": {}
     }
   },
   "order": [

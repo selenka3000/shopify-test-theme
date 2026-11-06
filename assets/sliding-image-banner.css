@@ -1,6 +1,4 @@
-.sliding-image-banner__title {
-    color: var(--color-foreground);
-}
-.sliding-image-banner_container {
-    margin: 1em;
+.sliding-image-banner {
+  padding-block: 4rem;
+  background-color: #fff;
 }
