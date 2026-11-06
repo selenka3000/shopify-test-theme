@@ -1,0 +1,75 @@
+{% comment %}
+  Reusable, continuously scrolling strip of numbered theme assets.
+  Load component-image-marquee.css and image-marquee.js in the calling section.
+
+  Parameters:
+    image_prefix: Filename prefix before the number (required).
+    image_count: Number of images, at least 2 (default: 5).
+    image_extension: File extension without a dot (default: jpg).
+    seconds_per_image: Seconds to move one image plus its gap (default: 10).
+    image_width / image_height: Display aspect ratio (default: 900 / 500).
+    image_alt: Optional shared alternative text; empty for decorative images.
+
+  Example: {% render 'image-marquee', image_prefix: 'sliding-banner-image', image_count: 5 %}
+{% endcomment %}
+
+{%- liquid
+  assign count = image_count | default: 5 | at_least: 2
+  assign extension = image_extension | default: 'jpg'
+  assign duration = seconds_per_image | default: 10 | at_least: 1 | times: count
+  assign width = image_width | default: 900
+  assign height = image_height | default: 500
+  assign cycle_width = count | times: 50
+  assign cycle_gaps = count | divided_by: 2.0
+-%}
+
+<image-marquee
+  class="image-marquee"
+  style="--image-marquee-duration: {{ duration }}s; --image-marquee-cycle-width: {{ cycle_width }}%; --image-marquee-cycle-gaps: {{ cycle_gaps }}; --image-marquee-ratio: {{ width }} / {{ height }};"
+>
+  <div class="image-marquee__viewport" tabindex="0">
+    <div class="image-marquee__track">
+      {%- for copy in (1..2) -%}
+        {%- for index in (1..count) -%}
+          {%- assign filename = image_prefix | append: index | append: '.' | append: extension -%}
+          <div class="image-marquee__item{% if copy == 2 %} image-marquee__item--duplicate{% endif %}"{% if copy == 2 %} aria-hidden="true"{% endif %}>
+            <img
+              src="{{ filename | asset_url }}"
+              alt="{% if copy == 1 %}{{ image_alt | escape }}{% endif %}"
+              width="{{ width }}"
+              height="{{ height }}"
+              loading="eager"
+              decoding="async"
+              draggable="false"
+            >
+          </div>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+  <button
+    class="image-marquee__toggle"
+    type="button"
+    aria-label="{{ 'sections.slideshow.pause_slideshow' | t | escape }}"
+    data-pause-label="{{ 'sections.slideshow.pause_slideshow' | t | escape }}"
+    data-play-label="{{ 'sections.slideshow.play_slideshow' | t | escape }}"
+    hidden
+  >
+    <img
+      class="image-marquee__icon image-marquee__icon--pause"
+      src="{{ 'pause-svg.svg' | asset_url }}"
+      width="32"
+      height="32"
+      alt=""
+      aria-hidden="true"
+    >
+    <img
+      class="image-marquee__icon image-marquee__icon--play"
+      src="{{ 'play-svg.svg' | asset_url }}"
+      width="32"
+      height="32"
+      alt=""
+      aria-hidden="true"
+    >
+  </button>
+</image-marquee>
