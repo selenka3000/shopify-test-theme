@@ -1,0 +1,42 @@
+{%- doc -%}
+  Renders removable active-filter pills for desktop and mobile layouts.
+  An unset price bound uses zero or the filter maximum; no bounds means no pill.
+
+  @param {object[]} filters - Filter objects from collection/search results.
+{%- enddoc -%}
+{%- for filter in filters -%}
+  {%- for value in filter.active_values -%}
+    <facet-remove>
+      <a href="{{ value.url_to_remove }}" class="active-facets__button active-facets__button--light">
+        <span class="active-facets__button-inner button button--tertiary">
+          {{ filter.label }}: {{ value.label | escape }}
+          {% render 'icon-close-small' %}
+          <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+        </span>
+      </a>
+    </facet-remove>
+  {%- endfor -%}
+  {% if filter.type == 'price_range' %}
+    {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+      <facet-remove>
+        <a href="{{ filter.url_to_remove }}" class="active-facets__button active-facets__button--light">
+          <span class="active-facets__button-inner button button--tertiary">
+            {%- if filter.min_value.value -%}
+              {{ filter.min_value.value | money }}
+            {%- else -%}
+              {{ 0 | money }}
+            {%- endif -%}
+            -
+            {%- if filter.max_value.value -%}
+              {{ filter.max_value.value | money }}
+            {%- else -%}
+              {{ filter.range_max | money }}
+            {%- endif -%}
+            {% render 'icon-close-small' %}
+            <span class="visually-hidden">{{ 'products.facets.clear_filter' | t }}</span>
+          </span>
+        </a>
+      </facet-remove>
+    {%- endif -%}
+  {% endif %}
+{%- endfor -%}

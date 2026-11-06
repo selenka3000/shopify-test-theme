@@ -4,8 +4,6 @@ if (!customElements.get('product-info')) {
       super();
       this.input = this.querySelector('.quantity__input');
       this.currentVariant = this.querySelector('.product-variant-id');
-      this.variantSelects = this.querySelector('variant-radios')
-      this.submitButton = this.querySelector('[type="submit"]');
     }
 
     cartUpdateUnsubscriber = undefined;
@@ -16,6 +14,7 @@ if (!customElements.get('product-info')) {
       this.quantityForm = this.querySelector('.product-form__quantity');
       if (!this.quantityForm) return;
       this.setQuantityBoundries();  
+      // Quick-add copies reuse their original section and must not fetch cart rules twice.
       if (!this.dataset.originalSection) {
         this.cartUpdateUnsubscriber = subscribe(PUB_SUB_EVENTS.cartUpdate, this.fetchQuantityRules.bind(this));
       }
@@ -28,6 +27,7 @@ if (!customElements.get('product-info')) {
     }
 
     disconnectedCallback() {
+      // Section replacement must release pub/sub listeners before a new instance subscribes.
       if (this.cartUpdateUnsubscriber) {
         this.cartUpdateUnsubscriber();
       }
@@ -45,6 +45,7 @@ if (!customElements.get('product-info')) {
       }
 
       let min = data.min;
+      // Quantity limits apply to the cart total, including items already added.
       const max = data.max === null ? data.max : data.max - data.cartQuantity;
       if (max !== null) min = Math.min(min, max);
       if (data.cartQuantity >= data.min) min = Math.min(min, data.step);

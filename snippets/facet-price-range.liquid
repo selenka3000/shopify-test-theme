@@ -1,0 +1,69 @@
+{%- doc -%}
+  Renders desktop/mobile price fields without changing their IDs or currency layout.
+  Form numbers use decimal points even when Shopify formats money with commas.
+
+  @param {object} filter - Price-range filter from collection/search results.
+  @param {string} filter_type - Parent layout: horizontal, vertical or drawer.
+  @param {boolean} [uses_comma_decimals] - Whether the currency uses comma decimals.
+  @param {string} id_prefix - Filter- for desktop or Mobile-Filter- for mobile.
+  @param {boolean} [mobile] - Enables the decimal keyboard and both currency labels.
+{%- enddoc -%}
+<price-range class="facets__price">
+  <span class="field-currency">{{ cart.currency.symbol }}</span>
+  <div class="field">
+    <input
+      class="field__input"
+      name="{{ filter.min_value.param_name }}"
+      id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
+      {%- if filter.min_value.value -%}
+        {%- if uses_comma_decimals -%}
+          value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+        {%- else -%}
+          value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+        {%- endif %}
+      {%- endif -%}
+      type="number"
+      placeholder="0"
+      min="0"
+      {% if mobile %}inputmode="decimal"{% endif %}
+      {%- if uses_comma_decimals -%}
+        max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+      {%- else -%}
+        max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+      {% endif %}
+    >
+    <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
+      {{- 'products.facets.from' | t -}}
+    </label>
+  </div>
+  {%- if mobile or filter_type != 'vertical' -%}
+    <span class="field-currency">{{ cart.currency.symbol }}</span>
+  {%- endif -%}
+  <div class="field">
+    <input
+      class="field__input"
+      name="{{ filter.max_value.param_name }}"
+      id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
+      {%- if filter.max_value.value -%}
+        {%- if uses_comma_decimals -%}
+          value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+        {%- else -%}
+          value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+        {%- endif %}
+      {%- endif -%}
+      type="number"
+      min="0"
+      {% if mobile %}inputmode="decimal"{% endif %}
+      {%- if uses_comma_decimals -%}
+        placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+        max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+      {%- else -%}
+        placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+        max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+      {% endif %}
+    >
+    <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-LTE">
+      {{- 'products.facets.to' | t -}}
+    </label>
+  </div>
+</price-range>

@@ -1,0 +1,10 @@
+{%- doc -%}
+  Preloads the selected body and heading fonts outside the caller's style tag.
+  System fonts need no download; preload_tag adds font CORS attributes itself.
+{%- enddoc -%}
+{%- unless settings.type_body_font.system? -%}
+  {{ settings.type_body_font | font_url | preload_tag: as: 'font', type: 'font/woff2' }}
+{%- endunless -%}
+{%- unless settings.type_header_font.system? -%}
+  {{ settings.type_header_font | font_url | preload_tag: as: 'font', type: 'font/woff2' }}
+{%- endunless -%}

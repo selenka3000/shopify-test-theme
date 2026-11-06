@@ -31,8 +31,8 @@ if (!customElements.get('product-subscriptions')) {
 
 window.ProductSubscriptions = ProductSubscriptions;
 
+// product-form.js uses this bridge when constructing the add-to-cart payload.
 window.getCurrentSellingPlanId = function() {
   const productSubscriptions = document.querySelector('product-subscriptions');
-  console.log(productSubscriptions)
   return productSubscriptions ? productSubscriptions.getCurrentSellingPlanId() : '';
 };
