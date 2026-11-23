@@ -10,43 +10,82 @@
 {
   "sections": {
     "main": {
-      "type": "main-list-collections",
-      "disabled": true,
-      "settings": {
-        "title": "Collections",
-        "sort": "alphabetical",
-        "image_ratio": "square",
-        "columns_desktop": 2,
-        "columns_mobile": "2"
-      }
-    },
-    "07c5541b-f8e9-4e48-9d3c-06973d977a3a": {
-      "type": "collection-list",
+      "type": "rich-text",
       "blocks": {
-        "template--18521947767080__07c5541b-f8e9-4e48-9d3c-06973d977a3a-1681309838ff78aa4b-0": {
-          "type": "featured_collection",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "collection": "hydrogen"
+            "heading": "Zahnpflege für zu Hause",
+            "heading_size": "h1"
           }
         },
-        "template--18521947767080__07c5541b-f8e9-4e48-9d3c-06973d977a3a-1681309838ff78aa4b-1": {
-          "type": "featured_collection",
+        "text": {
+          "type": "text",
           "settings": {
-            "collection": "automated-collection"
+            "text": "<p>Entdecke die passende Produktkategorie für deine tägliche Zahnpflege.</p>"
           }
         }
       },
       "block_order": [
-        "template--18521947767080__07c5541b-f8e9-4e48-9d3c-06973d977a3a-1681309838ff78aa4b-0",
-        "template--18521947767080__07c5541b-f8e9-4e48-9d3c-06973d977a3a-1681309838ff78aa4b-1"
+        "heading",
+        "text"
       ],
       "settings": {
-        "title": "Collections",
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 2,
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "background-1",
-        "show_view_all": false,
+        "full_width": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "07c5541b-f8e9-4e48-9d3c-06973d977a3a": {
+      "type": "multicolumn",
+      "blocks": {
+        "toothbrushes": {
+          "type": "column",
+          "settings": {
+            "title": "Zahnbürsten",
+            "text": "<p>Entdecke Zahnbürsten und Bürstenköpfe für deine tägliche Putzroutine.</p>",
+            "link_label": "Zahnbürsten entdecken",
+            "link": "/search?type=product&q=Zahnb%C3%BCrste*"
+          }
+        },
+        "toothpaste": {
+          "type": "column",
+          "settings": {
+            "title": "Zahnpasta",
+            "text": "<p>Finde Zahnpasta für deine persönliche Zahnpflege zu Hause.</p>",
+            "link_label": "Zahnpasta entdecken",
+            "link": "/search?type=product&q=Zahnpasta*"
+          }
+        },
+        "interdental": {
+          "type": "column",
+          "settings": {
+            "title": "Zahnzwischenraumpflege",
+            "text": "<p>Entdecke Zahnseide und Interdentalbürsten als Ergänzung zu deiner Zahnbürste.</p>",
+            "link_label": "Zahnzwischenraumpflege entdecken",
+            "link": "/search?type=product&q=Zahnseide*%20OR%20Interdental*"
+          }
+        }
+      },
+      "block_order": [
+        "toothbrushes",
+        "toothpaste",
+        "interdental"
+      ],
+      "settings": {
+        "title": "Finde deine Zahnpflege",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,

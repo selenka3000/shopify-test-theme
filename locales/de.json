@@ -174,7 +174,10 @@
       "inventory_low_stock_show_count": "Niedriger Lagerbestand: {{ quantity }} verbleibend",
       "inventory_out_of_stock": "Nicht vorrätig",
       "inventory_out_of_stock_continue_selling": "Auf Lager",
-      "sku": "SKU"
+      "sku": "SKU",
+      "selling_plans": {
+        "one_time_purchase": "Einmaliger Kauf"
+      }
     },
     "modal": {
       "label": "Medien-Galerie"

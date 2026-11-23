@@ -10,31 +10,30 @@
 {
   "sections": {
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b": {
-      "type": "image-banner",
+      "type": "rich-text",
       "blocks": {
         "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-0": {
           "type": "heading",
           "settings": {
-            "heading": "Generated test data",
+            "heading": "Deine Zahnpflege. Dein Lächeln.",
             "heading_size": "h0"
           }
         },
         "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-1": {
           "type": "text",
           "settings": {
-            "text": "A theme and populated test store by Shopify to help you test commerce primitives.",
-            "text_style": "body"
+            "text": "<p>Entdecke Zahnbürsten, Zahnpasta und Produkte für die Zahnzwischenraumpflege. Finde die passende Pflege für deinen Alltag – einfach online für zu Hause.</p>"
           }
         },
         "template--18309637636369__6a3bb789-ce10-45f5-ae67-e2063ef8c76b-168016437761699a6e-2": {
-          "type": "buttons",
+          "type": "button",
           "settings": {
-            "button_label_1": "Shop products",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_label": "Zahnpflege entdecken",
+            "button_link": "/collections",
+            "button_style_secondary": false,
+            "button_label_2": "Produkte suchen",
+            "button_link_2": "/search?type=product&q=Zahn*%20OR%20Interdental*",
+            "button_style_secondary_2": true
           }
         }
       },
@@ -45,28 +44,23 @@
       ],
       "custom_css": [],
       "settings": {
-        "image": "shopify://shop_images/theme_cover_image.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "desktop_content_position": "middle-left",
-        "show_text_box": true,
-        "desktop_content_alignment": "left",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "background-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "full_width": true,
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "<strong>Featured products</strong>",
+        "title": "Zahnpflege für deinen Alltag",
         "heading_size": "h0",
-        "description": "",
+        "description": "<p>Entdecke Produkte für deine persönliche Zahnpflegeroutine.</p>",
         "show_description": false,
         "description_style": "body",
-        "collection": "automated-collection",
+        "collection": "",
         "products_to_show": 10,
         "columns_desktop": 3,
         "full_width": false,
@@ -83,80 +77,56 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "f1552b18-6017-4231-810d-74e61da22c37": {
-      "type": "image-with-text",
-      "blocks": {
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Stay hydrated",
-            "heading_size": "h1"
-          }
-        },
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Try our wax subscription so you can fly high, but never dry.</p>",
-            "text_style": "body"
-          }
-        },
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-2": {
-          "type": "button",
-          "settings": {
-            "button_label": "Get waxy now",
-            "button_link": "shopify://products/selling-plans-ski-wax"
-          }
-        }
       },
-      "block_order": [
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-0",
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-1",
-        "template--18309637636369__f1552b18-6017-4231-810d-74e61da22c37-1680164422d7fb2efc-2"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/theme_cover_image.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "accent-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
+      "disabled": true
     },
     "38cdf60f-e431-43b5-aac3-7e6215447d67": {
-      "type": "collection-list",
+      "type": "multicolumn",
       "blocks": {
-        "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-0": {
-          "type": "featured_collection",
+        "toothbrushes": {
+          "type": "column",
           "settings": {
-            "collection": "hydrogen"
+            "title": "Zahnbürsten",
+            "text": "<p>Entdecke Zahnbürsten und Bürstenköpfe für deine tägliche Putzroutine.</p>",
+            "link_label": "Zahnbürsten entdecken",
+            "link": "/search?type=product&q=Zahnb%C3%BCrste*"
           }
         },
-        "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-1": {
-          "type": "featured_collection",
+        "toothpaste": {
+          "type": "column",
           "settings": {
-            "collection": "automated-collection"
+            "title": "Zahnpasta",
+            "text": "<p>Finde Zahnpasta für deine persönliche Zahnpflege zu Hause.</p>",
+            "link_label": "Zahnpasta entdecken",
+            "link": "/search?type=product&q=Zahnpasta*"
+          }
+        },
+        "interdental": {
+          "type": "column",
+          "settings": {
+            "title": "Zahnzwischenraumpflege",
+            "text": "<p>Entdecke Zahnseide und Interdentalbürsten als Ergänzung zu deiner Zahnbürste.</p>",
+            "link_label": "Zahnzwischenraumpflege entdecken",
+            "link": "/search?type=product&q=Zahnseide*%20OR%20Interdental*"
           }
         }
       },
       "block_order": [
-        "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-0",
-        "template--18309637636369__38cdf60f-e431-43b5-aac3-7e6215447d67-1680164898782d94ce-1"
+        "toothbrushes",
+        "toothpaste",
+        "interdental"
       ],
       "settings": {
-        "title": "<strong>Collections</strong>",
+        "title": "Finde deine Zahnpflege",
         "heading_size": "h1",
-        "image_ratio": "portrait",
-        "columns_desktop": 2,
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
         "color_scheme": "background-1",
-        "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -169,27 +139,27 @@
         "collapsible_row_xHhjpF": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Handgefertigt in Europa",
+            "heading": "Für wen ist unser Dental-Shop gedacht?",
             "icon": "heart",
-            "row_content": "<p>Wir lassen unsere Produkte in Europa herstellen, damit wir die keine Leute aus anderen Kontinenten ausbeuten, sondern lieber Leute aus Europa ausbeuten. Damit haben Sie wenigstens Geld und Portugal ist schon auch sehr billig in der Herstellung (schlechter Mindestlohn).</p>",
+            "row_content": "<p>Unser Shop richtet sich an Privatkunden, die Zahnpflegeprodukte für zu Hause suchen. Entdecke Produkte für deine tägliche Routine.</p>",
             "page": ""
           }
         },
         "collapsible_row_QDAYak": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Aus nachwachsenden Rohstoffen gebaut",
-            "icon": "recycle",
-            "row_content": "<p>Im Prinzip ist jeder Stoff nachwachsend, klingt aber besser und kann schon leicht als Green-Washing definiert werden. Sind trotzdem super Materialien.</p>",
+            "heading": "Wie finde ich passende Zahnpflegeprodukte?",
+            "icon": "question_mark",
+            "row_content": "<p>Starte bei Zahnbürsten, Zahnpasta oder Zahnzwischenraumpflege. In der jeweiligen Produktbeschreibung findest du Angaben zur Anwendung und zu den Produkteigenschaften.</p>",
             "page": ""
           }
         },
         "collapsible_row_mnbEFF": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "mit Liebe zum Detail",
-            "icon": "heart",
-            "row_content": "<p>Wir durchdenken das Produkt von Grund auf und erzeugen somit ein Erlebnis welches sich von allen anderen Produkten hervorhebt. Von Skitfahrern für Skifahrer.</p>",
+            "heading": "Wo finde ich Hinweise zur Anwendung?",
+            "icon": "clipboard",
+            "row_content": "<p>Beachte die Angaben auf der Produktseite und die Anwendungshinweise des Herstellers auf der Verpackung. Bei individuellen Fragen zu deiner Zahnpflege hilft dir deine Zahnarztpraxis weiter.</p>",
             "page": ""
           }
         }
@@ -201,8 +171,8 @@
       ],
       "name": "t:sections.collapsible_content.presets.name",
       "settings": {
-        "caption": "",
-        "heading": "Wie werden unsere Snowboards hergestellt?",
+        "caption": "Zahnpflege zu Hause",
+        "heading": "Fragen zu deiner Zahnpflege",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "row",
@@ -216,15 +186,14 @@
       }
     },
     "sliding_image_banner": {
-        "type": "sliding-image-banner",
-        "settings": {}
+      "type": "sliding-image-banner",
+      "settings": {}
     }
   },
   "order": [
     "6a3bb789-ce10-45f5-ae67-e2063ef8c76b",
     "featured_collection",
-     "sliding_image_banner",
-    "f1552b18-6017-4231-810d-74e61da22c37",
+    "sliding_image_banner",
     "38cdf60f-e431-43b5-aac3-7e6215447d67",
     "collapsible_content_GcLAgx"
   ]

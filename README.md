@@ -22,7 +22,13 @@ Unter Windows können bei gesperrten PowerShell-Skripten `npm.cmd` und `shopify.
 | `npm run check` | Lokale Prüfungen und anschließend Shopify Theme Check |
 | `node scripts/verify-refactor.mjs a2038c2c95b53b7a2fba051c9799a5004df66c12` | Ausgabe des Refactorings mit dem ursprünglichen Git-Stand vergleichen |
 
-Theme Check meldet keine Warnungen mehr. Ein bereits vorhandener fehlender deutscher Übersetzungsschlüssel bleibt unverändert, um bestehende Storefront-Texte zu erhalten. Deshalb beendet sich `npm run check` aktuell mit Fehlerstatus, obwohl die lokalen Prüfungen bestehen. Details stehen im [Prüfbericht](docs/REFACTORING.md).
+Der fehlende deutsche Übersetzungsschlüssel für den einmaligen Kauf wurde ergänzt. `npm run check` prüft die lokalen Komponenten und das Theme mit Shopify Theme Check. Der [Prüfbericht](docs/REFACTORING.md) dokumentiert den früheren Stand des Refactorings.
+
+## Dental-Shop für Privatkunden
+
+Die gespeicherten Theme-Inhalte sind auf Zahnpflege für zu Hause ausgerichtet. Startseite und Kategorieübersicht führen über die Produktsuche zu Zahnbürsten, Zahnpasta und Zahnzwischenraumpflege; dafür müssen keine neuen Kollektionen mit bestimmten Handles angelegt werden. Die bisherige Demo-Produktauswahl auf der Startseite ist deaktiviert und ihre Kollektionsverknüpfung entfernt. Sie kann im Theme-Editor nach Auswahl einer echten Dental-Kollektion wieder aktiviert werden.
+
+Produkte, Produktbeschreibungen, Kollektionen, Menüeinträge und Seiteninhalte werden in Shopify verwaltet. Vorhandene Snowboard-Testdaten müssen dort separat durch das dentale Sortiment ersetzt werden. Die lokalen Theme-Änderungen wurden nicht in den Shop hochgeladen.
 
 ## Projektaufbau
 

@@ -116,8 +116,8 @@
     "sale_badge_color_scheme": "accent-2",
     "sold_out_badge_color_scheme": "inverse",
     "accent_icons": "accent-1",
-    "brand_headline": "© 2023 / Shopify, Inc.",
-    "brand_description": "<p>©2023/ Shopify, Inc.</p>",
+    "brand_headline": "Dein Dental-Shop",
+    "brand_description": "<p>Zahnpflege für dich und deinen Alltag. Entdecke Produkte für die tägliche Mundpflege zu Hause.</p>",
     "brand_image_width": 100,
     "social_facebook_link": "",
     "social_instagram_link": "",
@@ -135,7 +135,7 @@
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
-    "cart_drawer_collection": "hydrogen",
+    "cart_drawer_collection": "",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -260,8 +260,8 @@
       "sale_badge_color_scheme": "accent-2",
       "sold_out_badge_color_scheme": "inverse",
       "accent_icons": "text",
-      "brand_headline": "© 2023 / Shopify, Inc.",
-      "brand_description": "<p>©2023/ Shopify, Inc.</p>",
+      "brand_headline": "Dein Dental-Shop",
+      "brand_description": "<p>Zahnpflege für dich und deinen Alltag. Entdecke Produkte für die tägliche Mundpflege zu Hause.</p>",
       "brand_image_width": 100,
       "social_facebook_link": "",
       "social_instagram_link": "",
@@ -279,7 +279,7 @@
       "cart_type": "drawer",
       "show_vendor": false,
       "show_cart_note": false,
-      "cart_drawer_collection": "hydrogen",
+      "cart_drawer_collection": "",
       "sections": {
         "main-password-header": {
           "type": "main-password-header",
